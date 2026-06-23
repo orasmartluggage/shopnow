@@ -1,0 +1,948 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ORA Signature — Smart luggage, classically engineered</title>
+<meta name="description" content="The ORA Signature is smart hardshell luggage: three-layer composite shell, USB charging port, hidden phone holder, TSA locks and silent 360° wheels. Four sizes, three finishes." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+
+<style>
+  :root{
+    --ink:#0E0F11;
+    --ink-soft:#16181B;
+    --ink-2:#1E2024;
+    --paper:#FBFAF8;
+    --paper-2:#F0EEE9;
+    --graphite:#3C3F44;
+    --silver:#B7BABF;
+    --silver-dim:#86888D;
+    --line-dark:rgba(255,255,255,.12);
+    --line-light:rgba(14,15,17,.12);
+    --display:'Space Grotesk',sans-serif;
+    --serif:'Cormorant Garamond',Georgia,serif;
+    --body:'Inter',sans-serif;
+    --maxw:1280px;
+    --pad:clamp(20px,5vw,72px);
+    --ease:cubic-bezier(.22,.61,.36,1);
+  }
+
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+  body{
+    font-family:var(--body);
+    background:var(--paper);
+    color:var(--ink);
+    line-height:1.6;
+    overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+  }
+  img{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  ::selection{background:var(--ink);color:var(--paper)}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding-inline:var(--pad)}
+
+  /* ---------- type ---------- */
+  .eyebrow{
+    font-family:var(--display);
+    font-size:.72rem;
+    font-weight:500;
+    letter-spacing:.32em;
+    text-transform:uppercase;
+  }
+  h1,h2,h3{font-family:var(--display);font-weight:500;line-height:1.02;letter-spacing:-.02em}
+  .serif{font-family:var(--serif);font-weight:500;letter-spacing:0}
+
+  /* ---------- buttons ---------- */
+  .btn{
+    display:inline-flex;align-items:center;gap:.6em;
+    font-family:var(--display);font-size:.82rem;font-weight:500;
+    letter-spacing:.04em;
+    padding:.95em 1.7em;border:1px solid var(--ink);
+    background:var(--ink);color:var(--paper);
+    border-radius:2px;cursor:pointer;
+    transition:background .35s var(--ease),color .35s var(--ease),transform .2s var(--ease);
+  }
+  .btn:hover{background:transparent;color:var(--ink);transform:translateY(-1px)}
+  .btn--ghost{background:transparent;color:inherit;border-color:currentColor}
+  .btn--ghost:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+  .btn--light{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+  .btn--light:hover{background:transparent;color:var(--paper)}
+  .btn .arr{transition:transform .3s var(--ease)}
+  .btn:hover .arr{transform:translateX(4px)}
+
+  /* ---------- announcement ---------- */
+  .topbar{
+    background:var(--ink);color:var(--silver);
+    font-family:var(--display);font-size:.7rem;letter-spacing:.18em;
+    text-transform:uppercase;text-align:center;
+    padding:9px 16px;position:relative;z-index:60;
+  }
+  .topbar b{color:#fff;font-weight:500}
+
+  /* ---------- nav ---------- */
+  .nav{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px var(--pad);
+    transition:background .4s var(--ease),box-shadow .4s var(--ease),padding .4s var(--ease);
+  }
+  .nav.scrolled{background:rgba(251,250,248,.86);backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line-light);padding-block:13px}
+  .nav__logo img{height:26px;width:auto;transition:opacity .3s}
+  .nav__logo .lw{display:block}
+  .nav__logo .lb{display:none}
+  .nav.scrolled .lw{display:none}
+  .nav.scrolled .lb{display:block}
+  .nav__links{display:flex;gap:34px;align-items:center}
+  .nav__links a{
+    font-family:var(--display);font-size:.8rem;font-weight:400;letter-spacing:.06em;
+    color:#fff;opacity:.82;position:relative;padding:4px 0;
+  }
+  .nav.scrolled .nav__links a{color:var(--ink)}
+  .nav__links a::after{content:"";position:absolute;left:0;bottom:0;height:1px;width:0;background:currentColor;transition:width .3s var(--ease)}
+  .nav__links a:hover{opacity:1}
+  .nav__links a:hover::after{width:100%}
+  .nav__right{display:flex;align-items:center;gap:18px}
+  .nav__social{display:flex;gap:14px}
+  .nav__social a{color:#fff;opacity:.8;transition:opacity .25s,transform .25s}
+  .nav.scrolled .nav__social a{color:var(--ink)}
+  .nav__social a:hover{opacity:1;transform:translateY(-2px)}
+  .nav__social svg{width:18px;height:18px;display:block}
+  .nav .btn{padding:.7em 1.3em;font-size:.76rem}
+  .nav:not(.scrolled) .btn{background:#fff;color:var(--ink);border-color:#fff}
+  .nav:not(.scrolled) .btn:hover{background:transparent;color:#fff}
+  .burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer;padding:6px}
+  .burger span{width:24px;height:2px;background:#fff;transition:.3s var(--ease)}
+  .nav.scrolled .burger span{background:var(--ink)}
+
+  /* ---------- hero ---------- */
+  .hero{
+    position:relative;background:var(--ink);color:#fff;
+    min-height:100svh;display:flex;align-items:center;
+    padding-top:120px;padding-bottom:60px;overflow:hidden;
+  }
+  .hero__ribs{position:absolute;inset:0;opacity:.5;pointer-events:none;
+    background:repeating-linear-gradient(90deg,transparent 0 38px,rgba(255,255,255,.035) 38px 39px);
+    mask-image:linear-gradient(90deg,transparent,#000 30%,#000 70%,transparent);
+  }
+  .hero__glow{position:absolute;right:-8%;top:50%;transform:translateY(-50%);
+    width:60vw;height:60vw;max-width:780px;max-height:780px;
+    background:radial-gradient(circle,rgba(120,128,140,.16),transparent 62%);pointer-events:none}
+  .hero .wrap{position:relative;z-index:2;display:grid;grid-template-columns:1.05fr .95fr;gap:40px;align-items:center;width:100%}
+  .hero__eyebrow{color:var(--silver);margin-bottom:26px;display:flex;align-items:center;gap:14px}
+  .hero__eyebrow::before{content:"";width:34px;height:1px;background:var(--silver-dim)}
+  .hero h1{font-size:clamp(2.8rem,6.4vw,5.5rem);font-weight:500}
+  .hero h1 .it{font-family:var(--serif);font-style:italic;font-weight:500;letter-spacing:0}
+  .hero__sub{margin:26px 0 0;max-width:34ch;color:var(--silver);font-size:1.05rem}
+  .hero__cta{display:flex;gap:14px;margin-top:38px;flex-wrap:wrap}
+  .hero__specs{display:flex;gap:26px;margin-top:38px;flex-wrap:wrap}
+  .hero__spec{font-family:var(--display);font-size:.74rem;letter-spacing:.06em;color:var(--silver);
+    display:flex;align-items:center;gap:9px}
+  .hero__spec b{display:block;color:#fff;font-size:1.35rem;font-weight:500;letter-spacing:-.01em;line-height:1}
+  .hero__spec span{display:block;text-transform:uppercase;letter-spacing:.16em;margin-top:5px;color:var(--silver-dim);font-size:.62rem}
+  .hero__media{position:relative;justify-self:center}
+  .hero__media img{
+    width:min(40vw,440px);height:auto;
+    filter:drop-shadow(0 50px 60px rgba(0,0,0,.6));
+    -webkit-mask-image:linear-gradient(#000 86%,transparent 99%);
+    mask-image:linear-gradient(#000 86%,transparent 99%);
+  }
+  .hero__media .floor{position:absolute;left:50%;bottom:6%;transform:translateX(-50%);
+    width:70%;height:30px;background:radial-gradient(ellipse,rgba(0,0,0,.55),transparent 70%);filter:blur(6px)}
+  .scrollcue{position:absolute;left:var(--pad);bottom:26px;z-index:3;font-family:var(--display);
+    font-size:.66rem;letter-spacing:.24em;text-transform:uppercase;color:var(--silver-dim);
+    display:flex;align-items:center;gap:10px}
+  .scrollcue .ln{width:1px;height:34px;background:linear-gradient(var(--silver-dim),transparent);animation:cue 2.2s var(--ease) infinite}
+  @keyframes cue{0%,100%{transform:scaleY(.4);opacity:.3;transform-origin:top}50%{transform:scaleY(1);opacity:1;transform-origin:top}}
+
+  /* ---------- marquee ---------- */
+  .marquee{background:var(--paper-2);border-block:1px solid var(--line-light);overflow:hidden;padding:16px 0}
+  .marquee__track{display:flex;gap:60px;width:max-content;animation:slide 32s linear infinite;font-family:var(--serif);font-size:1.5rem;color:var(--graphite)}
+  .marquee__track span{display:flex;align-items:center;gap:60px;white-space:nowrap}
+  .marquee__track span::after{content:"◆";font-size:.5rem;color:var(--silver-dim);transform:translateY(-3px)}
+  @keyframes slide{to{transform:translateX(-50%)}}
+
+  /* ---------- section frame ---------- */
+  section{position:relative}
+  .sec-pad{padding-block:clamp(80px,12vw,150px)}
+  .sec-head{display:flex;align-items:flex-end;justify-content:space-between;gap:30px;margin-bottom:60px;flex-wrap:wrap}
+  .sec-head .eyebrow{color:var(--silver-dim)}
+  .sec-num{font-family:var(--display);font-size:.72rem;letter-spacing:.2em;color:var(--silver-dim)}
+
+  /* ---------- thesis ---------- */
+  .thesis{background:var(--paper);text-align:center}
+  .thesis .eyebrow{color:var(--silver-dim);display:inline-flex;margin-bottom:30px}
+  .thesis h2{font-size:clamp(2rem,5vw,3.6rem);max-width:18ch;margin:0 auto;font-weight:500}
+  .thesis h2 .it{font-family:var(--serif);font-style:italic;font-weight:500;letter-spacing:0}
+  .thesis p{max-width:52ch;margin:30px auto 0;color:var(--graphite);font-size:1.08rem}
+
+  /* ---------- features ---------- */
+  .features{background:var(--ink);color:#fff}
+  .features .eyebrow{color:var(--silver-dim)}
+  .features h2{color:#fff;font-size:clamp(1.8rem,4vw,3rem)}
+  .feat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line-dark);border:1px solid var(--line-dark)}
+  .feat{background:var(--ink);padding:40px 34px;transition:background .4s var(--ease)}
+  .feat:hover{background:var(--ink-2)}
+  .feat__ico{width:34px;height:34px;color:#fff;margin-bottom:26px}
+  .feat__ico svg{width:100%;height:100%;stroke:currentColor;fill:none;stroke-width:1.4}
+  .feat h3{font-size:1.18rem;font-weight:500;margin-bottom:10px}
+  .feat p{color:var(--silver);font-size:.94rem}
+  .feat__no{font-family:var(--display);font-size:.7rem;letter-spacing:.2em;color:var(--silver-dim);margin-bottom:22px}
+  .feat-plus{margin-top:38px;font-family:var(--display);font-size:.92rem;letter-spacing:.02em;color:var(--silver);text-align:center;line-height:2}
+  .feat-plus b{color:#fff;font-weight:500}
+
+  /* ---------- sizes ---------- */
+  .sizes{background:var(--paper-2)}
+  .sizes .sec-head{margin-bottom:46px}
+  .size-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line-light);border:1px solid var(--line-light)}
+  .size{background:var(--paper);padding:34px 28px;display:flex;flex-direction:column;transition:background .35s var(--ease)}
+  .size:hover{background:#fff}
+  .size__in{font-family:var(--display);font-size:2.5rem;font-weight:500;letter-spacing:-.03em;line-height:1}
+  .size__cat{font-family:var(--display);font-size:.64rem;letter-spacing:.18em;text-transform:uppercase;color:var(--silver-dim);margin-top:10px}
+  .size__spec{margin-top:26px;border-top:1px solid var(--line-light)}
+  .size__spec div{display:flex;justify-content:space-between;gap:14px;padding:11px 0;border-bottom:1px solid var(--line-light);
+    font-family:var(--display);font-size:.82rem;letter-spacing:.01em}
+  .size__spec div span{color:var(--silver-dim)}
+  .size__for{margin-top:18px;color:var(--graphite);font-size:.9rem;line-height:1.5}
+  .size__top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+  .size__badge{font-family:var(--display);font-size:.58rem;letter-spacing:.16em;text-transform:uppercase;color:var(--silver-dim);
+    border:1px solid var(--line-light);border-radius:100px;padding:5px 11px;white-space:nowrap;margin-top:6px}
+  .size__badge--live{color:var(--ink);border-color:var(--ink)}
+  .size__buy{margin-top:auto;padding-top:26px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+  .size__price{font-family:var(--display);font-size:1.2rem;font-weight:500;letter-spacing:-.01em;color:var(--ink);line-height:1}
+  .size__price--muted{font-size:.74rem;font-weight:400;color:var(--silver-dim);letter-spacing:.14em;text-transform:uppercase}
+
+  /* hero price line */
+  .hero__price{margin-top:24px;font-family:var(--display);font-size:.92rem;letter-spacing:.03em;color:var(--silver);display:flex;align-items:center;gap:10px}
+  .hero__price b{color:#fff;font-weight:500}
+  .hero__price .dot{width:6px;height:6px;border-radius:50%;background:#fff;box-shadow:0 0 0 4px rgba(255,255,255,.12)}
+
+  /* spec strip (replaces marquee) */
+  .specstrip{background:var(--paper);border-block:1px solid var(--line-light)}
+  .specstrip .wrap{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;padding-block:0}
+  .specstrip span{font-family:var(--display);font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--graphite);
+    padding:22px 36px;position:relative}
+  .specstrip span+span::before{content:"";position:absolute;left:0;top:50%;transform:translateY(-50%);width:1px;height:11px;background:var(--line-light)}
+
+  /* small / variant buttons */
+  .btn--sm{padding:.72em 1.2em;font-size:.74rem}
+  .btn--outline{background:transparent;color:var(--ink);border-color:var(--line-light)}
+  .btn--outline:hover{background:var(--ink);color:var(--paper);border-color:var(--ink)}
+
+  /* cta buy */
+  .cta__price{font-family:var(--display);font-size:1.5rem;font-weight:500;color:#fff;margin-top:28px;letter-spacing:-.01em}
+  .cta__price small{display:block;font-size:.68rem;font-weight:400;letter-spacing:.18em;text-transform:uppercase;color:var(--silver-dim);margin-top:10px}
+  .cta__btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:30px}
+  .cta__div{max-width:380px;margin:46px auto 0;border-top:1px solid var(--line-dark);padding-top:28px}
+  .cta__div .cta__note{margin-top:16px}
+
+  /* ---------- gallery ---------- */
+  .gallery{background:var(--ink);color:#fff}
+  .gallery .eyebrow{color:var(--silver-dim)}
+  .gallery h2{color:#fff;font-size:clamp(1.8rem,4vw,3rem)}
+  .gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .gal-item{position:relative;overflow:hidden;border-radius:2px;background:var(--ink-2)}
+  .gal-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .9s var(--ease)}
+  .gal-item:hover img{transform:scale(1.05)}
+  .gal-item::after{content:"";position:absolute;inset:0;background:linear-gradient(transparent 50%,rgba(0,0,0,.55));z-index:1;pointer-events:none}
+  .gal-item__cap{position:absolute;left:16px;bottom:13px;z-index:2;font-family:var(--display);font-size:.66rem;letter-spacing:.16em;text-transform:uppercase;color:#fff}
+  .gal-banner{grid-column:1/-1;height:230px}
+  .gal-tile{height:380px}
+
+  /* ---------- reviews ---------- */
+  .reviews{background:var(--paper)}
+  .reviews .eyebrow{color:var(--silver-dim)}
+  .rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .rev-card{border:1px solid var(--line-light);border-radius:3px;padding:34px 30px;background:#fff;position:relative;display:flex;flex-direction:column}
+  .rev-stars{letter-spacing:3px;font-size:.95rem;margin-bottom:18px}
+  .rev-card blockquote{font-family:var(--serif);font-size:1.32rem;line-height:1.36;color:var(--ink);font-weight:500}
+  .rev-card cite{display:block;margin-top:auto;padding-top:22px;font-family:var(--display);font-style:normal;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;color:var(--silver-dim)}
+  .rev-sample{position:absolute;top:16px;right:16px;font-family:var(--display);font-size:.54rem;letter-spacing:.16em;text-transform:uppercase;color:var(--silver-dim);border:1px solid var(--line-light);border-radius:100px;padding:4px 9px}
+
+  /* ---------- instagram strip ---------- */
+  .igstrip{background:var(--paper);border-top:1px solid var(--line-light)}
+  .ig-head{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;flex-wrap:wrap;margin-bottom:32px}
+  .ig-head h2{font-size:clamp(1.5rem,3vw,2.2rem)}
+  .ig-head .eyebrow{color:var(--silver-dim);margin-bottom:14px}
+  .ig-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+  .ig-tile{aspect-ratio:1;overflow:hidden;border-radius:2px;display:block;position:relative;background:var(--ink)}
+  .ig-tile img{width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease),opacity .3s}
+  .ig-tile:hover img{transform:scale(1.07);opacity:.82}
+
+  /* ---------- in use ---------- */
+  .inuse{background:var(--paper)}
+  .inuse .eyebrow{color:var(--silver-dim)}
+  .inuse-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+  .inuse-card__img{border-radius:3px;overflow:hidden;aspect-ratio:4/5;background:var(--paper-2)}
+  .inuse-card__img img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
+  .inuse-card:hover .inuse-card__img img{transform:scale(1.04)}
+  .inuse-card h3{font-family:var(--display);font-weight:500;font-size:1.3rem;margin-top:24px;letter-spacing:-.01em}
+  .inuse-card p{color:var(--graphite);margin-top:10px;max-width:42ch;font-size:.98rem}
+
+  /* ---------- full-bleed bands ---------- */
+  .band{position:relative;width:100%;overflow:hidden;background:var(--ink);line-height:0}
+  .band img{width:100%;height:100%;object-fit:cover;display:block}
+  .band--tall{height:min(86vh,840px)}
+  .band--full{height:auto}
+  .band--full img{height:auto}
+  .band__cap{position:absolute;left:0;right:0;bottom:0;line-height:1.2;
+    padding:clamp(28px,5vw,70px);background:linear-gradient(transparent,rgba(0,0,0,.6));color:#fff}
+  .band__cap .eyebrow{color:rgba(255,255,255,.72);margin-bottom:14px}
+  .band__cap h2{font-size:clamp(1.9rem,4.6vw,3.6rem);font-weight:500;color:#fff;max-width:18ch}
+  .band__cap h2 .it{font-family:var(--serif);font-style:italic;letter-spacing:0}
+
+  /* ---------- colorways ---------- */
+  .colors{background:var(--paper)}
+  .colors__media{position:relative;border-radius:3px;overflow:hidden;background:var(--paper-2)}
+  .colors__media img{width:100%;height:auto}
+  .swatches{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap}
+  .swatch{display:flex;align-items:center;gap:13px;border:1px solid var(--line-light);background:#fff;
+    padding:12px 18px 12px 13px;border-radius:2px;cursor:pointer;transition:.3s var(--ease);font-family:var(--display)}
+  .swatch:hover{border-color:var(--ink);transform:translateY(-2px)}
+  .swatch[aria-pressed="true"]{border-color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+  .swatch__dot{width:30px;height:30px;border-radius:50%;border:1px solid var(--line-light)}
+  .swatch__name{display:block;font-size:.86rem;font-weight:500;letter-spacing:.02em}
+  .swatch__sub{display:block;font-size:.64rem;letter-spacing:.16em;text-transform:uppercase;color:var(--silver-dim);margin-top:2px;font-family:var(--display)}
+  .colors__wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:clamp(30px,6vw,70px);align-items:center}
+  .colors__copy h2{font-size:clamp(1.8rem,4vw,3rem)}
+  .colors__copy .eyebrow{color:var(--silver-dim)}
+
+  /* ---------- detail / pullquote ---------- */
+  .detail{background:var(--ink-soft);color:#fff;overflow:hidden}
+  .detail .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,6vw,80px);align-items:center}
+  .detail__img{position:relative}
+  .detail__img img{width:100%;border-radius:3px}
+  .detail__img .tag{position:absolute;background:rgba(14,15,17,.78);backdrop-filter:blur(6px);
+    border:1px solid var(--line-dark);border-radius:2px;padding:9px 14px;font-family:var(--display);
+    font-size:.7rem;letter-spacing:.08em;color:#fff}
+  .detail blockquote{font-family:var(--serif);font-size:clamp(1.6rem,3.6vw,2.7rem);line-height:1.18;font-weight:500}
+  .detail blockquote .it{font-style:italic}
+  .detail cite{display:block;margin-top:26px;font-family:var(--display);font-style:normal;
+    font-size:.74rem;letter-spacing:.18em;text-transform:uppercase;color:var(--silver-dim)}
+  .detail__list{margin-top:40px;border-top:1px solid var(--line-dark)}
+  .detail__list div{display:flex;justify-content:space-between;gap:20px;padding:15px 0;border-bottom:1px solid var(--line-dark);
+    font-family:var(--display);font-size:.84rem;letter-spacing:.03em}
+  .detail__list span{color:var(--silver)}
+
+  /* ---------- story ---------- */
+  .story{background:var(--paper);position:relative}
+  .story .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(30px,6vw,80px);align-items:center}
+  .story__img{border-radius:3px;overflow:hidden}
+  .story__img img{width:100%;height:100%;object-fit:cover}
+  .story .eyebrow{color:var(--silver-dim)}
+  .story h2{font-size:clamp(2rem,4.6vw,3.4rem)}
+  .story h2 .it{font-family:var(--serif);font-style:italic;letter-spacing:0}
+  .story p{margin-top:24px;color:var(--graphite);font-size:1.05rem;max-width:46ch}
+  .story p+p{margin-top:16px}
+
+  /* ---------- cta ---------- */
+  .cta{background:var(--ink);color:#fff;text-align:center;position:relative;overflow:hidden}
+  .cta__ribs{position:absolute;inset:0;opacity:.4;
+    background:repeating-linear-gradient(90deg,transparent 0 46px,rgba(255,255,255,.04) 46px 47px);
+    mask-image:radial-gradient(circle at 50% 50%,#000,transparent 75%)}
+  .cta .wrap{position:relative;z-index:2}
+  .cta h2{font-size:clamp(2.2rem,6vw,4.4rem);font-weight:500}
+  .cta h2 .it{font-family:var(--serif);font-style:italic;letter-spacing:0}
+  .cta p{color:var(--silver);max-width:46ch;margin:22px auto 0}
+  .cta__form{display:flex;gap:10px;max-width:460px;margin:40px auto 0;flex-wrap:wrap;justify-content:center}
+  .cta__form input{flex:1;min-width:220px;background:transparent;border:1px solid var(--line-dark);
+    color:#fff;padding:.95em 1.2em;border-radius:2px;font-family:var(--body);font-size:.92rem}
+  .cta__form input:focus{outline:none;border-color:#fff}
+  .cta__form input::placeholder{color:var(--silver-dim)}
+  .cta__note{margin-top:18px;font-size:.74rem;color:var(--silver-dim);font-family:var(--display);letter-spacing:.06em}
+
+  /* ---------- footer ---------- */
+  .footer{background:var(--ink);color:var(--silver);border-top:1px solid var(--line-dark);padding-block:64px 32px}
+  .footer .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
+  .footer__brand img{height:30px;margin-bottom:20px}
+  .footer__brand p{font-size:.9rem;max-width:30ch}
+  .footer__social{display:flex;gap:14px;margin-top:22px}
+  .footer__social a{color:#fff;opacity:.8;transition:.25s}
+  .footer__social a:hover{opacity:1;transform:translateY(-2px)}
+  .footer__social svg{width:20px;height:20px}
+  .footer h4{font-family:var(--display);font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:#fff;margin-bottom:18px;font-weight:500}
+  .footer ul{list-style:none}
+  .footer li{margin-bottom:11px}
+  .footer li a{font-size:.9rem;transition:color .25s}
+  .footer li a:hover{color:#fff}
+  .footer__base{max-width:var(--maxw);margin:48px auto 0;padding:24px var(--pad) 0;border-top:1px solid var(--line-dark);
+    display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;
+    font-family:var(--display);font-size:.72rem;letter-spacing:.06em;color:var(--silver-dim)}
+
+  /* ---------- mobile menu ---------- */
+  .mobile{position:fixed;inset:0;z-index:55;background:var(--ink);
+    display:flex;flex-direction:column;justify-content:center;align-items:center;gap:8px;
+    transform:translateY(-100%);transition:transform .5s var(--ease);visibility:hidden}
+  .mobile.open{transform:translateY(0);visibility:visible}
+  .mobile a{font-family:var(--display);font-size:1.8rem;color:#fff;padding:10px}
+  .mobile .close{position:absolute;top:22px;right:var(--pad);background:none;border:0;color:#fff;font-size:2rem;cursor:pointer;line-height:1}
+  .mobile__social{display:flex;gap:22px;margin-top:30px}
+  .mobile__social a{color:#fff}.mobile__social svg{width:24px;height:24px}
+
+  /* ---------- reveal ---------- */
+  .rev{opacity:0;transform:translateY(26px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+  .rev.in{opacity:1;transform:none}
+  .rev[data-d="1"]{transition-delay:.08s}
+  .rev[data-d="2"]{transition-delay:.16s}
+  .rev[data-d="3"]{transition-delay:.24s}
+  .rev[data-d="4"]{transition-delay:.32s}
+  .rev[data-d="5"]{transition-delay:.4s}
+
+  /* ---------- responsive ---------- */
+  @media(max-width:980px){
+    .hero .wrap{grid-template-columns:1fr;gap:10px}
+    .colors__wrap{grid-template-columns:1fr;gap:34px}
+    .hero__media{order:-1;margin-bottom:10px}
+    .hero__media img{width:min(64vw,320px)}
+    .hero{min-height:auto;padding-top:140px}
+    .feat-grid{grid-template-columns:repeat(2,1fr)}
+    .size-grid{grid-template-columns:repeat(2,1fr)}
+    .gal-grid{grid-template-columns:repeat(2,1fr)}
+    .gal-tile{height:300px}
+    .rev-grid{grid-template-columns:1fr;max-width:560px;margin-inline:auto}
+    .ig-grid{grid-template-columns:repeat(3,1fr)}
+    .inuse-grid{grid-template-columns:1fr;gap:34px;max-width:520px;margin-inline:auto}
+    .band--tall{height:min(70vh,620px)}
+    .detail .wrap,.story .wrap{grid-template-columns:1fr}
+    .story__img{order:-1;max-height:420px}
+    .footer .wrap{grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:680px){
+    .nav__links,.nav__social,.nav .btn{display:none}
+    .burger{display:flex}
+    .feat-grid{grid-template-columns:1fr}
+    .size-grid{grid-template-columns:1fr}
+    .gal-banner{height:170px}
+    .gal-tile{height:260px}
+    .footer .wrap{grid-template-columns:1fr 1fr;gap:30px}
+    .footer__brand{grid-column:1/-1}
+    .hero__specs{gap:20px}
+  }
+  @media(prefers-reduced-motion:reduce){
+    *{animation:none!important;scroll-behavior:auto!important}
+    .rev{opacity:1;transform:none;transition:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- ANNOUNCEMENT -->
+<div class="topbar">USB charging · <b>TSA-approved locks</b> · Silent 360° wheels · Four sizes</div>
+
+<!-- NAV -->
+<header class="nav" id="nav">
+  <a class="nav__logo" href="#top" aria-label="ORA home">
+    <img class="lw" src="assets/logo-white.png" alt="ORA" />
+    <img class="lb" src="assets/logo-black.png" alt="ORA" />
+  </a>
+  <nav class="nav__links" aria-label="Primary">
+    <a href="#thesis">The Case</a>
+    <a href="#features">Features</a>
+    <a href="#sizes">Sizes</a>
+    <a href="#colors">Colors</a>
+    <a href="#story">Story</a>
+  </nav>
+  <div class="nav__right">
+    <div class="nav__social">
+      <a href="https://www.instagram.com/orasmartluggage/" target="_blank" rel="noopener" aria-label="ORA on Instagram" data-social="ig">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+      </a>
+      <a href="https://www.facebook.com/orasmartluggage" target="_blank" rel="noopener" aria-label="ORA on Facebook" data-social="fb">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.5 9.9v-7H8v-2.9h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6v1.9H16l-.4 2.9h-2.1v7A10 10 0 0 0 22 12z"/></svg>
+      </a>
+    </div>
+    <a class="btn" href="#cta">Reserve <span class="arr">→</span></a>
+    <button class="burger" id="burger" aria-label="Open menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- MOBILE MENU -->
+<div class="mobile" id="mobile">
+  <button class="close" id="mclose" aria-label="Close menu">×</button>
+  <a href="#thesis">The Case</a>
+  <a href="#features">Features</a>
+  <a href="#sizes">Sizes</a>
+  <a href="#colors">Colors</a>
+  <a href="#story">Story</a>
+  <a href="#cta">Reserve</a>
+  <div class="mobile__social">
+    <a href="https://www.instagram.com/orasmartluggage/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+    <a href="https://www.facebook.com/orasmartluggage" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.5 9.9v-7H8v-2.9h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6v1.9H16l-.4 2.9h-2.1v7A10 10 0 0 0 22 12z"/></svg></a>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="hero__ribs"></div>
+  <div class="hero__glow"></div>
+  <div class="wrap">
+    <div class="hero__copy">
+      <p class="eyebrow hero__eyebrow rev">ORA Signature</p>
+      <h1 class="rev" data-d="1">The smart case,<br><span class="it">classically</span> built.</h1>
+      <p class="hero__sub rev" data-d="2">A three-layer composite shell. USB charging, a hidden phone stand, silent 360° wheels. Everything you reach for mid-trip, built into one case. Smart inside — timeless outside.</p>
+      <div class="hero__cta rev" data-d="3">
+        <a class="btn btn--light" href="https://m.me/orasmartluggage" target="_blank" rel="noopener">Order the cabin <span class="arr">→</span></a>
+        <a class="btn btn--ghost" href="#sizes">See the lineup</a>
+      </div>
+      <p class="hero__price rev" data-d="3"><span class="dot"></span>Cabin 20″ · in stock · <b>₱4,499</b></p>
+      <div class="hero__specs rev" data-d="4">
+        <div class="hero__spec"><div><b>20–26″</b><span>Four sizes</span></div></div>
+        <div class="hero__spec"><div><b>3.5kg</b><span>From, cabin</span></div></div>
+        <div class="hero__spec"><div><b>360°</b><span>Silent wheels</span></div></div>
+        <div class="hero__spec"><div><b>USB</b><span>Dual charging</span></div></div>
+      </div>
+    </div>
+    <div class="hero__media rev" data-d="2">
+      <img src="assets/cut-gunmetal.png" alt="ORA Signature smart carry-on in graphite, handle extended" />
+    </div>
+  </div>
+  <div class="scrollcue"><span class="ln"></span>Scroll</div>
+</section>
+
+<!-- SPEC STRIP -->
+<div class="specstrip">
+  <div class="wrap">
+    <span>TSA-approved locks</span>
+    <span>Three-layer shell</span>
+    <span>Silent 360° wheels</span>
+    <span>USB charging</span>
+  </div>
+</div>
+
+<!-- THESIS -->
+<section class="thesis sec-pad" id="thesis">
+  <div class="wrap">
+    <p class="eyebrow rev">Why ORA</p>
+    <h2 class="rev" data-d="1">Luggage that thinks ahead,<br>and <span class="it">never goes out of style.</span></h2>
+    <p class="rev" data-d="2">Most “smart” luggage ages like a gadget. The ORA Signature is engineered like a tool you keep — a hardshell that takes the knocks, with the modern touches you actually use and none of the gimmicks you don't.</p>
+  </div>
+</section>
+
+<!-- BRAND BAND -->
+<section class="band band--full">
+  <img src="assets/band-family.jpg" alt="The ORA Signature range in white, graphite and black" />
+</section>
+
+<!-- FEATURES -->
+<section class="features sec-pad" id="features">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow rev">The build</p>
+        <h2 class="rev" data-d="1">Engineered around<br>how you travel.</h2>
+      </div>
+      <p class="sec-num rev" data-d="2">The details that earn their place</p>
+    </div>
+    <div class="feat-grid">
+      <article class="feat rev"><p class="feat__no">01</p>
+        <div class="feat__ico"><svg viewBox="0 0 24 24"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg></div>
+        <h3>USB charging port</h3>
+        <p>A dual charging interface built into the shell keeps your phone and devices powered while you move through the terminal.</p>
+      </article>
+      <article class="feat rev" data-d="1"><p class="feat__no">02</p>
+        <div class="feat__ico"><svg viewBox="0 0 24 24"><rect x="7" y="3" width="10" height="15" rx="2"/><path d="M9.5 21h5"/></svg></div>
+        <h3>Hidden phone holder</h3>
+        <p>A tucked-away stand folds out to hold your phone steady — hands-free for boarding passes, calls or a show at the gate.</p>
+      </article>
+      <article class="feat rev" data-d="2"><p class="feat__no">03</p>
+        <div class="feat__ico"><svg viewBox="0 0 24 24"><path d="M6 8h11v8a3 3 0 0 1-3 3H9a3 3 0 0 1-3-3z"/><path d="M17 10h2a2 2 0 0 1 0 4h-2"/></svg></div>
+        <h3>Embedded cup holder</h3>
+        <p>A built-in holder keeps your coffee or water steady and spill-free, so your drink rides on top instead of in your hand.</p>
+      </article>
+      <article class="feat rev"><p class="feat__no">04</p>
+        <div class="feat__ico"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="13" rx="1.6"/><path d="M3 12.5h18M9 9h6"/></svg></div>
+        <h3>Quick-entry front pocket</h3>
+        <p>A front laptop compartment opens on its own, so you reach your essentials without unpacking the whole case at security.</p>
+      </article>
+      <article class="feat rev" data-d="1"><p class="feat__no">05</p>
+        <div class="feat__ico"><svg viewBox="0 0 24 24"><circle cx="7" cy="18" r="3"/><circle cx="17" cy="18" r="3"/><path d="M7 15V6h10v9"/></svg></div>
+        <h3>Silent 360° wheels</h3>
+        <p>Anti-skid spinner wheels roll flat in every direction and stay quiet across marble, tarmac and cobblestone alike.</p>
+      </article>
+      <article class="feat rev" data-d="2"><p class="feat__no">06</p>
+        <div class="feat__ico"><svg viewBox="0 0 24 24"><path d="M12 3 3 8l9 5 9-5z"/><path d="M3 12l9 5 9-5M3 16l9 5 9-5"/></svg></div>
+        <h3>Three-layer composite shell</h3>
+        <p>A composite PC shell stacks wear-resistant, buffering and tough layers — impact-resistant, so it flexes and springs back.</p>
+      </article>
+    </div>
+    <p class="feat-plus rev">Plus <b>TSA-approved locks</b> · <b>layered dry/wet lining</b> with mesh pockets · <b>aluminium pull rod</b> · <b>side hooks</b></p>
+  </div>
+</section>
+
+<!-- IN USE -->
+<section class="inuse sec-pad" id="inuse">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow rev">In use</p>
+        <h2 class="rev" data-d="1">The clever bits,<br>working.</h2>
+      </div>
+      <p class="sec-num rev" data-d="2">Not features on paper — features you'll use</p>
+    </div>
+    <div class="inuse-grid">
+      <article class="inuse-card rev">
+        <div class="inuse-card__img"><img src="assets/inuse-laptop.jpg" alt="Laptop sliding into the front compartment while the case charges" /></div>
+        <h3>Laptop out, charge in</h3>
+        <p>The front pocket opens on its own for your laptop and documents, while the built-in USB port keeps everything powered — no need to open the whole case.</p>
+      </article>
+      <article class="inuse-card rev" data-d="1">
+        <div class="inuse-card__img"><img src="assets/inuse-interior.jpg" alt="Open ORA case showing the layered lining with mesh pockets" /></div>
+        <h3>A place for everything</h3>
+        <p>The layered lining splits dry from wet, with mesh pockets and net compartments that keep a week's packing exactly where you left it.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- SIZES -->
+<section class="sizes sec-pad" id="sizes">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow rev">The lineup</p>
+        <h2 class="rev" data-d="1">From carry-on<br>to the long haul.</h2>
+      </div>
+      <p class="sec-num rev" data-d="2">Cabin in stock · larger sizes to pre-order</p>
+    </div>
+    <div class="size-grid">
+      <article class="size rev">
+        <div class="size__top">
+          <div>
+            <div class="size__in">20″</div>
+            <div class="size__cat">Cabin</div>
+          </div>
+          <span class="size__badge size__badge--live">In stock</span>
+        </div>
+        <div class="size__spec">
+          <div>Size<span>36 × 24 × 55 cm</span></div>
+          <div>Weight<span>3.5 kg</span></div>
+        </div>
+        <p class="size__for">Short trips, or a carry-on companion that stays with you at the gate.</p>
+        <div class="size__buy">
+          <span class="size__price">₱4,499</span>
+          <a class="btn btn--sm" href="https://m.me/orasmartluggage" target="_blank" rel="noopener">Order now <span class="arr">→</span></a>
+        </div>
+      </article>
+      <article class="size rev" data-d="1">
+        <div class="size__top">
+          <div>
+            <div class="size__in">22″</div>
+            <div class="size__cat">Cabin plus</div>
+          </div>
+          <span class="size__badge">Pre-order</span>
+        </div>
+        <div class="size__spec">
+          <div>Size<span>39 × 24 × 62 cm</span></div>
+          <div>Weight<span>4.0 kg</span></div>
+        </div>
+        <p class="size__for">Weekend escapes that need a little extra space without checking a bag.</p>
+        <div class="size__buy">
+          <span class="size__price size__price--muted">Pre-order</span>
+          <a class="btn btn--sm btn--outline" href="https://m.me/orasmartluggage" target="_blank" rel="noopener">Reserve <span class="arr">→</span></a>
+        </div>
+      </article>
+      <article class="size rev" data-d="2">
+        <div class="size__top">
+          <div>
+            <div class="size__in">24″</div>
+            <div class="size__cat">Medium checked</div>
+          </div>
+          <span class="size__badge">Pre-order</span>
+        </div>
+        <div class="size__spec">
+          <div>Size<span>43 × 28 × 64 cm</span></div>
+          <div>Weight<span>4.4 kg</span></div>
+        </div>
+        <p class="size__for">Longer vacations with ample room for everything you'll actually wear.</p>
+        <div class="size__buy">
+          <span class="size__price size__price--muted">Pre-order</span>
+          <a class="btn btn--sm btn--outline" href="https://m.me/orasmartluggage" target="_blank" rel="noopener">Reserve <span class="arr">→</span></a>
+        </div>
+      </article>
+      <article class="size rev" data-d="3">
+        <div class="size__top">
+          <div>
+            <div class="size__in">26″</div>
+            <div class="size__cat">Large checked</div>
+          </div>
+          <span class="size__badge">Pre-order</span>
+        </div>
+        <div class="size__spec">
+          <div>Size<span>46 × 28 × 70 cm</span></div>
+          <div>Weight<span>5.0 kg</span></div>
+        </div>
+        <p class="size__for">Extended trips or family travel, when one case has to carry the lot.</p>
+        <div class="size__buy">
+          <span class="size__price size__price--muted">Pre-order</span>
+          <a class="btn btn--sm btn--outline" href="https://m.me/orasmartluggage" target="_blank" rel="noopener">Reserve <span class="arr">→</span></a>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- COLORWAYS -->
+<section class="colors sec-pad" id="colors">
+  <div class="wrap colors__wrap">
+    <div class="colors__media rev">
+      <img src="assets/colorways.jpg" alt="ORA Signature carry-ons in White, Graphite and Black at the airport" id="colorImg" />
+    </div>
+    <div class="colors__copy rev" data-d="1">
+      <p class="eyebrow">Three finishes</p>
+      <h2>Pick your<br>character.</h2>
+      <p style="color:var(--graphite);margin-top:22px;max-width:36ch">Three tones, one build. Same engineering inside — an entirely different presence at the gate.</p>
+      <div class="swatches" role="group" aria-label="Choose a finish">
+        <button class="swatch" aria-pressed="false" data-name="White">
+          <span class="swatch__dot" style="background:linear-gradient(135deg,#fbfbfb,#dcdcde)"></span>
+          <span class="swatch__name">White</span>
+        </button>
+        <button class="swatch" aria-pressed="true" data-name="Graphite">
+          <span class="swatch__dot" style="background:linear-gradient(135deg,#55585d,#34373b)"></span>
+          <span class="swatch__name">Graphite</span>
+        </button>
+        <button class="swatch" aria-pressed="false" data-name="Black">
+          <span class="swatch__dot" style="background:linear-gradient(135deg,#2a2b2d,#0d0d0e)"></span>
+          <span class="swatch__name">Black</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DETAIL -->
+<section class="detail sec-pad">
+  <div class="wrap">
+    <div class="detail__img rev">
+      <img src="assets/product-gunmetal.jpg" alt="Close detail of the ORA Signature ribbed shell and smart panel" />
+      <span class="tag" style="top:18px;left:18px">Composite shell</span>
+      <span class="tag" style="bottom:18px;right:18px">Smart panel</span>
+    </div>
+    <div class="detail__copy rev" data-d="1">
+      <blockquote>The ribs aren't <span class="it">decoration.</span> They're how a flat sheet becomes a wall that won't fold.</blockquote>
+      <cite>— ORA design notes</cite>
+      <div class="detail__list">
+        <div>Shell<span>Three-layer composite PC</span></div>
+        <div>Handle<span>Aluminium pull rod</span></div>
+        <div>Wheels<span>Silent 360° spinner ×4</span></div>
+        <div>Lining<span>Layered, dry/wet separation</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery sec-pad">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow rev">Closer look</p>
+        <h2 class="rev" data-d="1">The details,<br>up close.</h2>
+      </div>
+      <p class="sec-num rev" data-d="2">Every edge considered</p>
+    </div>
+    <div class="gal-grid">
+      <div class="gal-item gal-banner rev"><img src="assets/gal-wheels.jpg" alt="Silent 360° spinner wheels" /><span class="gal-item__cap">Silent 360° wheels</span></div>
+      <div class="gal-item gal-tile rev"><img src="assets/gal-panel.jpg" alt="Front panel detail" /><span class="gal-item__cap">Front panel</span></div>
+      <div class="gal-item gal-tile rev" data-d="1"><img src="assets/gal-shell.jpg" alt="Three-layer composite shell with TSA lock" /><span class="gal-item__cap">Three-layer shell</span></div>
+      <div class="gal-item gal-tile rev" data-d="2"><img src="assets/gal-handle.jpg" alt="Aluminium pull rod" /><span class="gal-item__cap">Aluminium pull rod</span></div>
+      <div class="gal-item gal-tile rev" data-d="3"><img src="assets/gal-latch.jpg" alt="Reinforced latch detail" /><span class="gal-item__cap">Reinforced latch</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- LIFESTYLE BAND -->
+<section class="band band--tall">
+  <img src="assets/band-airport.jpg" alt="ORA Signature carry-on at the airport terminal" style="object-position:center 38%" />
+  <div class="band__cap">
+    <p class="eyebrow">Made for the move</p>
+    <h2>Built to <span class="it">board.</span></h2>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="story sec-pad" id="story">
+  <div class="wrap">
+    <div class="story__img rev"><img src="assets/brand-dark.jpg" alt="ORA Signature in a low-lit terminal" /></div>
+    <div class="story__copy rev" data-d="1">
+      <p class="eyebrow">The name</p>
+      <h2>ORA means <span class="it">‘now’.</span></h2>
+      <p>We started with a simple frustration: smart luggage that looked like a prototype and broke like one too. So we kept the intelligence and threw out the theatre.</p>
+      <p>The Signature is the result — a case built around how people actually move through airports today, dressed in a shell that will still look right a decade of trips from now.</p>
+      <a class="btn" href="#cta" style="margin-top:34px">Make it yours <span class="arr">→</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS — replace the sample cards below with real customer quotes, then delete the "Sample" tags -->
+<section class="reviews sec-pad" id="reviews" style="background:var(--paper-2)">
+  <div class="wrap">
+    <div class="sec-head">
+      <div>
+        <p class="eyebrow rev">Word of mouth</p>
+        <h2 class="rev" data-d="1">Loved by the people<br>who pack it.</h2>
+      </div>
+      <p class="sec-num rev" data-d="2">Add your own reviews here</p>
+    </div>
+    <div class="rev-grid">
+      <article class="rev-card rev">
+        <span class="rev-sample">Sample</span>
+        <div class="rev-stars">★★★★★</div>
+        <blockquote>“Drop a real customer's words here — what surprised them, what they'd tell a friend.”</blockquote>
+        <cite>— Customer name · City</cite>
+      </article>
+      <article class="rev-card rev" data-d="1">
+        <span class="rev-sample">Sample</span>
+        <div class="rev-stars">★★★★★</div>
+        <blockquote>“A second quote about the build, the wheels, or the price — keep it short and specific.”</blockquote>
+        <cite>— Customer name · City</cite>
+      </article>
+      <article class="rev-card rev" data-d="2">
+        <span class="rev-sample">Sample</span>
+        <div class="rev-stars">★★★★★</div>
+        <blockquote>“One more on how it travels — at the airport, on the road, day to day.”</blockquote>
+        <cite>— Customer name · City</cite>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta sec-pad" id="cta">
+  <div class="cta__ribs"></div>
+  <div class="wrap">
+    <p class="eyebrow rev" style="color:var(--silver-dim);justify-content:center;display:flex">Order now</p>
+    <h2 class="rev" data-d="1">Ready when<br><span class="it">you are.</span></h2>
+    <p class="cta__price rev" data-d="2">₱4,499<small>Cabin 20″ · in stock · order direct</small></p>
+    <div class="cta__btns rev" data-d="3">
+      <a class="btn btn--light" href="https://m.me/orasmartluggage" target="_blank" rel="noopener">Order on Messenger <span class="arr">→</span></a>
+      <a class="btn btn--ghost" href="https://www.instagram.com/orasmartluggage/" target="_blank" rel="noopener">Message on Instagram</a>
+    </div>
+    <div class="cta__div rev" data-d="3">
+      <p class="cta__note" style="margin-bottom:18px">Want a larger size? Join the list for pre-order news and restocks.</p>
+      <form class="cta__form" id="signup">
+        <input type="email" name="email" placeholder="you@email.com" aria-label="Email address" required />
+        <button class="btn btn--light" type="submit">Notify me <span class="arr">→</span></button>
+      </form>
+      <p class="cta__note" id="formNote">We'll only email about ORA. Unsubscribe anytime.</p>
+    </div>
+  </div>
+</section>
+
+<!-- INSTAGRAM -->
+<section class="igstrip" style="padding-block:clamp(64px,9vw,110px)">
+  <div class="wrap">
+    <div class="ig-head">
+      <div>
+        <p class="eyebrow rev">On the feed</p>
+        <h2 class="rev" data-d="1">Follow @orasmartluggage</h2>
+      </div>
+      <a class="btn btn--outline rev" data-d="2" href="https://www.instagram.com/orasmartluggage/" target="_blank" rel="noopener">Follow on Instagram <span class="arr">→</span></a>
+    </div>
+    <div class="ig-grid">
+      <a class="ig-tile rev" href="https://www.instagram.com/orasmartluggage/" target="_blank" rel="noopener" aria-label="ORA on Instagram"><img src="assets/ig1.jpg" alt="" /></a>
+      <a class="ig-tile rev" href="https://www.instagram.com/orasmartluggage/" target="_blank" rel="noopener" aria-label="ORA on Instagram"><img src="assets/ig5.jpg" alt="" /></a>
+      <a class="ig-tile rev" href="https://www.instagram.com/orasmartluggage/" target="_blank" rel="noopener" aria-label="ORA on Instagram"><img src="assets/ig6.jpg" alt="" /></a>
+      <a class="ig-tile rev" href="https://www.instagram.com/orasmartluggage/" target="_blank" rel="noopener" aria-label="ORA on Instagram"><img src="assets/ig4.jpg" alt="" /></a>
+      <a class="ig-tile rev" href="https://www.instagram.com/orasmartluggage/" target="_blank" rel="noopener" aria-label="ORA on Instagram"><img src="assets/ig2.jpg" alt="" /></a>
+      <a class="ig-tile rev" href="https://www.instagram.com/orasmartluggage/" target="_blank" rel="noopener" aria-label="ORA on Instagram"><img src="assets/ig3.jpg" alt="" /></a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__brand">
+      <img src="assets/logo-white.png" alt="ORA" />
+      <p>Smart hardshell luggage, classically engineered. Designed for travellers who keep their things — and their cases — for the long haul.</p>
+      <div class="footer__social">
+        <a href="https://www.instagram.com/orasmartluggage/" target="_blank" rel="noopener" aria-label="ORA on Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://www.facebook.com/orasmartluggage" target="_blank" rel="noopener" aria-label="ORA on Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12a10 10 0 1 0-11.5 9.9v-7H8v-2.9h2.5V9.8c0-2.5 1.5-3.9 3.8-3.9 1.1 0 2.2.2 2.2.2v2.5h-1.3c-1.2 0-1.6.8-1.6 1.6v1.9H16l-.4 2.9h-2.1v7A10 10 0 0 0 22 12z"/></svg></a>
+      </div>
+    </div>
+    <div>
+      <h4>Shop</h4>
+      <ul>
+        <li><a href="#features">ORA Signature</a></li>
+        <li><a href="#sizes">Sizes</a></li>
+        <li><a href="#colors">Finishes</a></li>
+        <li><a href="#cta">Reserve yours</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Support</h4>
+      <ul>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#">Warranty</a></li>
+        <li><a href="#">Shipping &amp; returns</a></li>
+        <li><a href="https://www.instagram.com/orasmartluggage/" target="_blank" rel="noopener">Contact us</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4>Follow</h4>
+      <ul>
+        <li><a href="https://www.instagram.com/orasmartluggage/" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://www.facebook.com/orasmartluggage" target="_blank" rel="noopener">Facebook</a></li>
+        <li><a href="#story">Our story</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer__base">
+    <span>© <span id="yr"></span> ORA. All rights reserved.</span>
+    <span>Privacy · Terms · Cookies</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // year
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // nav scroll state
+  var nav = document.getElementById('nav');
+  var onScroll = function(){ nav.classList.toggle('scrolled', window.scrollY > 40); };
+  onScroll(); window.addEventListener('scroll', onScroll, {passive:true});
+
+  // mobile menu
+  var mobile = document.getElementById('mobile');
+  document.getElementById('burger').addEventListener('click', function(){ mobile.classList.add('open'); });
+  document.getElementById('mclose').addEventListener('click', function(){ mobile.classList.remove('open'); });
+  mobile.querySelectorAll('a').forEach(function(a){ a.addEventListener('click', function(){ mobile.classList.remove('open'); }); });
+
+  // reveal on scroll
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(!reduce && 'IntersectionObserver' in window){
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+    }, {threshold:.12, rootMargin:'0px 0px -8% 0px'});
+    document.querySelectorAll('.rev').forEach(function(el){ io.observe(el); });
+  } else {
+    document.querySelectorAll('.rev').forEach(function(el){ el.classList.add('in'); });
+  }
+
+  // colorway swatches
+  document.querySelectorAll('.swatch').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      document.querySelectorAll('.swatch').forEach(function(b){ b.setAttribute('aria-pressed','false'); });
+      btn.setAttribute('aria-pressed','true');
+    });
+  });
+
+  // signup (no backend — front-end confirmation only)
+  var form = document.getElementById('signup');
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+    var note = document.getElementById('formNote');
+    var email = form.querySelector('input').value;
+    note.textContent = 'Thanks — ' + email + ' is on the list. We\'ll be in touch.';
+    note.style.color = '#fff';
+    form.reset();
+  });
+})();
+</script>
+</body>
+</html>
